@@ -11,7 +11,12 @@ $(function () {
 
     $messageForm.submit( e => {
         e.preventDefault();
-        console.log('send message', $messageInput.val());
+        socket.emit('send message', $messageInput.val());
+        $messageInput.val('');
+    });
+
+    socket.on('new message', function (data) {
+        $chat.append(data + '<br>')
     })
 
 })
