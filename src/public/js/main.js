@@ -5,12 +5,13 @@ $(function () {
     const $messageForm = $('#message-form');
     const $messageInput = $('#message');
     const $chat = $('#chat');
-})
 
-// events
 
-$messageForm.submit( e => {
-    e.preventDefault();
-    console.log('enviando')
+    // events
+
+    $messageForm.submit( e => {
+        e.preventDefault();
+        console.log('send message', $messageInput.val());
     })
 
+})
