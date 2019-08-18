@@ -1,60 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/main.css  ">
     <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/0fb9fd672c.js"></script>
     <title>Express - Socket.io</title>
 </head>
 
-<body>
 
+<body>
+<!--NAVBAR-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">CHAT ROL</a>
-
 </nav>
 <br>
-<div class="container card border-primary mb-3" style="max-width: 30rem;">
+
+<!--USER FORM -- nickWrap -->
+<div id="nickWrap" class="container col-md-4 mnt-5 card border-secondary mb-3" style="max-width: 50rem;">
+    <!--USER FORM-->
+        <div class="card-header">
+            <h4 class="card-title">Enter your username</h4>
+        </div>
+    <p id="nickError"></p>
+    <!--USER FORM-->
+
+        <div class="card-body">
+            <form id="nickForm">
+                <input type="text" id="nickname" class="form-control">
+                <button class="btn btn-primary"><i class="fas fa-location-arrow"></i> Crear user</button>
+            </form>
+        </div>
+
+</div>
 
 
-    <div class="card-header">
-        <h4 class="card-title">Chatbox</h4>
-        <input class="form-control" type="text" placeholder="Username" id="username">
+
+<!--FORM CHAT -- contentBox-->
+<div class="container card border-primary mb-3" id="contentBox" style="max-width: 30rem;">
+    <div class="row mt-4 mb-4">
+        <div class="col-md-6 offset-md-1">
+
+            <!--CHAT TITLE FORM-->
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Chatbox ROL</h4>
+                    <input class="form-control" type="text" placeholder="Username" id="username">
+                </div>
+
+                <!--BODY FORM CHAT-->
+                <div id="chat" class="card-body">
+                </div>
+
+                <!--CHAT FORM FOOTER-->
+                <div class="card-footer ">
+                    <form id="message-form">
+                            <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Message" id="message">
+                            <div class="input-group-append">
+                            <button id="send" class="btn btn-primary"><i class="fas fa-location-arrow"></i>Send</button>
+                            </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="card">
+        <div id="card col-md-3">
+
+            <div class="card-header">
+                <h3>Users</h3>
+            </div>
+            <div class="card-body">
+                <div id="usernames"></div>
+            </div>
+        </div>
+        </div>
+
     </div>
+</div>
 
 
-    <div id="chat" class="card-body">
-        <div class="alert alert-dismissible alert-danger">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
-        </div>
-        <div class="alert alert-dismissible alert-success">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
-        </div>
-        <div id="actions"></div>
-    </div>
 
 
-    <div class="card-footer ">
-        <form id="message-form">
-        <div class="input-group">
-        <input class="form-control" type="text" placeholder="Message" id="message">
-            <div class="input-group-append">
-        <button id="send" class="btn btn-primary">Send</button>
-        </div>
-        </div>
-        </form>
-    </div>
 
 
 </div>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="/socket.io/socket.io.js" charset="utf-8"></script>
 <script src="/js/main.js" charset="utf-8"></script>
 </body>
