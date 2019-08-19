@@ -42,8 +42,8 @@ $(function () {
         $messageInput.val('');
     });
 
-    socket.on('new message', function (data) {
-        $chat.append(data + '<br>')
+    socket.on('new message', data => {
+        $chat.append('<b>' + data.nick + '</b>: ' + data.msg + '<br/>')
     })
 
     socket.on('usernames', data => {
