@@ -4,11 +4,11 @@ module.exports = function (io) {
 
     let nicknames = [
 
-    ] //save memory server
+    ]
 
     io.on('connection', function(socket) {
         console.log('new user connected');
-// field chat added
+// fields chat box
         socket.on('new user', function (data, cb) {
             console.log(data);
             if(nicknames.indexOf(data) != -1){
@@ -20,7 +20,7 @@ module.exports = function (io) {
                 updateNicknames();
             }
         });
-// field nickname added
+// fields nickname list
         socket.on('send message', data => {
             io.sockets.emit('new message', {
                 msg: data,
