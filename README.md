@@ -2,7 +2,7 @@
 
 Here an example of chat using sockets js
 
-Run project 
+![Example](http://docs/screenshot.jpeg "Example")
 
 # Install
 
