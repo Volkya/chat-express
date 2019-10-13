@@ -4,8 +4,6 @@ Here an example of chat using sockets js
 
 ![](docs/screenshot.jpeg)
 
-![](docs/screenshot.jpeg)
-
 # Install
 
 `npm install`
