@@ -1,4 +1,4 @@
-// CLIENT SOCKETS
+// CLIENT SOCKETS LOGIC
 
 $(function () {
     const socket = io();
@@ -17,8 +17,6 @@ $(function () {
     const $users = $('#usernames');
 
     // events
-
-
     $nickForm.submit(e => {
         e.preventDefault();
         socket.emit('new user', $nickname.val(), data => {
@@ -35,13 +33,15 @@ $(function () {
             $nickname.val('');
         })
     });
-
+    // SEND MESSAGE
     $messageForm.submit( e => {
         e.preventDefault();
-        socket.emit('send message', $messageInput.val());
+        socket.emit('send message', $messageInput.val(), data => {
+            $chat.append(`<p class="error">${data}</p>`)
+        });
         $messageInput.val('');
     });
-
+    // CAPTURA NICK AND MESAGE NEW
     socket.on('new message', data => {
         $chat.append('<b>' + data.nick + '</b>: ' + data.msg + '<br/>')
     })
@@ -56,4 +56,8 @@ $(function () {
         $users.html(html);
     })
 
-})
+    socket.on('whisper', data => {
+        $chat.append(`<p class="whisper"><b>${data.nick}:</b> ${data.msg}</p>`)
+    })
+
+});

@@ -4,13 +4,10 @@ Here an example of chat using sockets js
 
 ![](docs/screenshot.jpeg)
 
-# Install
-
-`npm install`
-
 # Run
-
-`npm run dev`
+- Verify service mongod
+- `npm install`
+- `npm run dev`
 
 # Future updates
 
