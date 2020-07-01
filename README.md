@@ -12,3 +12,7 @@ Here an example of chat using sockets js
 # Future updates
 
 Integrate private chat
+
+# Methodology
+
+https://trello.com/b/oMu0UP4g/chat-js
